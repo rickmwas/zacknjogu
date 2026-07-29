@@ -42,10 +42,26 @@ export function Header({ onOpenContact }: HeaderProps) {
 
   return (
     <>
-      {/* Top Banner Notice */}
-      <div className="bg-[#E31E24] text-white text-[11px] sm:text-xs font-bold py-1.5 px-4 text-center tracking-wide flex items-center justify-center gap-2 shadow-inner">
-        <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-        <span>Jubilee Party Official Candidate • Member of County Assembly (MCA) • Maai Mahiu Ward</span>
+      {/* Apple Editorial Continuous Marquee Ticker */}
+      <div className="bg-[#E31E24] text-white text-[11px] sm:text-xs font-black uppercase tracking-widest py-1.5 overflow-hidden shadow-inner flex items-center">
+        <div className="animate-ticker flex items-center gap-8 shrink-0">
+          <span>★ MAAI MAHIU MBELE: UONGOZI BORA, UAZI NA MAENDELEO</span>
+          <span>•</span>
+          <span>VOTE ZACK NJOGU MCA</span>
+          <span>•</span>
+          <span>JUBILEE PARTY OFFICIAL CANDIDATE</span>
+          <span>•</span>
+          <span>MAAI MAHIU WARD • NAIVASHA SUB-COUNTY</span>
+          <span>•</span>
+          <span>★ MAAI MAHIU MBELE: UONGOZI BORA, UAZI NA MAENDELEO</span>
+          <span>•</span>
+          <span>VOTE ZACK NJOGU MCA</span>
+          <span>•</span>
+          <span>JUBILEE PARTY OFFICIAL CANDIDATE</span>
+          <span>•</span>
+          <span>MAAI MAHIU WARD • NAIVASHA SUB-COUNTY</span>
+          <span>•</span>
+        </div>
       </div>
 
       <header

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MessageSquare, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, MessageSquare, ShieldCheck, CheckCircle2, Award, Users, Droplets } from "lucide-react";
 import { CAMPAIGN_INFO } from "@/lib/data/campaignData";
 import { AppleButton } from "@/components/ui/AppleButton";
 
@@ -12,69 +12,106 @@ interface HeroSectionProps {
 
 export function HeroSection({ onOpenContact }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden bg-[#FAF8F5] dark:bg-neutral-950 text-neutral-950 dark:text-white py-12 sm:py-16 lg:py-24 border-b border-neutral-200/80 dark:border-neutral-800/80 editorial-grid">
+    <section className="relative overflow-hidden bg-[#0A0F1D] text-white py-16 sm:py-20 lg:py-28 border-b border-neutral-800">
       
-      {/* Background Soft Glow Orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500/10 dark:bg-red-600/10 rounded-full blur-3xl pointer-events-none -z-0" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-0" />
+      {/* 1. Full-Bleed Atmospheric Background Image with Vignette Overlays */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero_bg.png"
+          alt="Maai Mahiu Rally Atmosphere"
+          fill
+          className="object-cover object-center opacity-30 mix-blend-luminosity scale-105"
+          priority
+        />
+        {/* Dark Editorial Vignette Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1D] via-[#0A0F1D]/80 to-[#0A0F1D]/90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1D] via-transparent to-[#0A0F1D]/60" />
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-red-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Editorial Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Column: Candidate Headline, Badges & Action Buttons */}
-          <div className="lg:col-span-7 space-y-7 text-left">
+          {/* =========================================================================
+              LEFT COLUMN: Candidate Subject (Uncontainerized Cutout, NO card box)
+             ========================================================================= */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-start items-end min-h-[420px] sm:min-h-[520px] lg:min-h-[580px]">
             
-            {/* Swahili Slogan Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 text-xs sm:text-sm font-bold text-neutral-800 dark:text-neutral-200 shadow-sm">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E31E24] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E31E24]"></span>
-              </span>
-              <span>&ldquo;{CAMPAIGN_INFO.slogan}&rdquo; • {CAMPAIGN_INFO.sloganTranslation}</span>
+            {/* Soft Ambient Radial Glow Behind Candidate */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] bg-gradient-to-t from-red-600/30 via-red-900/10 to-transparent rounded-full blur-2xl pointer-events-none" />
+            
+            {/* Un-framed Cutout Candidate Image */}
+            <div className="relative w-full max-w-[380px] sm:max-w-[440px] aspect-[3/4] sm:aspect-[4/5]">
+              <Image
+                src="/images/candidate.png"
+                alt="Zack Njogu - MCA Candidate Maai Mahiu Ward"
+                fill
+                className="object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] filter contrast-[1.05]"
+                priority
+              />
+              
+              {/* Floating Minimal Emblem Badge on Left (Uncontainerized overlay accent) */}
+              <div className="absolute bottom-6 left-0 sm:-left-4 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-neutral-900/90 backdrop-blur-md border border-neutral-700/80 shadow-2xl text-xs font-bold uppercase tracking-wider text-white">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#E31E24] animate-pulse shrink-0" />
+                <span>Official Candidate • Jubilee</span>
+              </div>
             </div>
 
-            {/* Candidate Name in Crisp Optical Serif/Display */}
+          </div>
+
+          {/* =========================================================================
+              RIGHT COLUMN: Editorial Typography, Headline, & CTAs
+             ========================================================================= */}
+          <div className="lg:col-span-7 space-y-7 text-left pl-0 lg:pl-4">
+            
+            {/* Swahili & English Slogan Stamp */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-red-950/70 border border-red-800/80 text-xs sm:text-sm font-bold uppercase tracking-wider text-red-400 backdrop-blur-sm">
+              <ShieldCheck className="w-4 h-4 text-[#E31E24]" />
+              <span>&ldquo;{CAMPAIGN_INFO.slogan}&rdquo;</span>
+            </div>
+
+            {/* Main Candidate Headline in Modern Ultra-Bold Sans-Serif */}
             <div className="space-y-2">
-              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.04em] text-neutral-950 dark:text-white leading-[0.98]">
-                Zack Njogu
+              <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-[0.95] uppercase">
+                Zack <span className="text-[#E31E24]">Njogu</span>
               </h1>
-              <div className="flex items-center gap-2 text-[#E31E24] dark:text-red-400 font-extrabold text-lg sm:text-xl md:text-2xl tracking-tight pt-1">
-                <ShieldCheck className="w-6 h-6 shrink-0" />
+              
+              <div className="flex items-center gap-3 text-neutral-300 font-bold text-lg sm:text-xl md:text-2xl tracking-tight pt-1">
+                <span className="w-8 h-1 bg-[#E31E24] rounded-full inline-block" />
                 <span>MCA Candidate — Maai Mahiu Ward</span>
               </div>
             </div>
 
-            {/* Subtitle Paragraph */}
-            <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 font-body leading-relaxed max-w-xl">
-              Transparent leadership. Better services. Real economic opportunities for every family across Maai Mahiu Ward.
+            {/* Campaign Paragraph */}
+            <p className="text-base sm:text-lg text-neutral-300 font-body leading-relaxed max-w-xl">
+              Transparent leadership. Empowering local youth and traders. Guaranteeing clean water access and bursary integrity for every family in Maai Mahiu.
             </p>
 
-            {/* Core Values Bullets */}
-            <div className="grid grid-cols-2 gap-3.5 max-w-lg pt-1 text-xs sm:text-sm font-bold text-neutral-800 dark:text-neutral-200">
-              <div className="flex items-center gap-2 bg-white/60 dark:bg-neutral-900/50 p-2.5 rounded-2xl border border-neutral-200/60 dark:border-neutral-800">
+            {/* Key Value Commitments Grid */}
+            <div className="grid grid-cols-2 gap-3 max-w-lg pt-1 text-xs sm:text-sm font-bold text-neutral-200">
+              <div className="flex items-center gap-2.5 bg-neutral-900/60 backdrop-blur-md p-3 rounded-2xl border border-neutral-800">
                 <CheckCircle2 className="w-4 h-4 text-[#E31E24] shrink-0" />
-                <span>Accountable Governance</span>
+                <span>Accountable Leadership</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/60 dark:bg-neutral-900/50 p-2.5 rounded-2xl border border-neutral-200/60 dark:border-neutral-800">
-                <CheckCircle2 className="w-4 h-4 text-[#E31E24] shrink-0" />
-                <span>Youth Empowerment</span>
+              <div className="flex items-center gap-2.5 bg-neutral-900/60 backdrop-blur-md p-3 rounded-2xl border border-neutral-800">
+                <Users className="w-4 h-4 text-[#E31E24] shrink-0" />
+                <span>Youth & Women Fund</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/60 dark:bg-neutral-900/50 p-2.5 rounded-2xl border border-neutral-200/60 dark:border-neutral-800">
-                <CheckCircle2 className="w-4 h-4 text-[#E31E24] shrink-0" />
-                <span>Clean Water Access</span>
+              <div className="flex items-center gap-2.5 bg-neutral-900/60 backdrop-blur-md p-3 rounded-2xl border border-neutral-800">
+                <Droplets className="w-4 h-4 text-[#E31E24] shrink-0" />
+                <span>Solarized Water Boreholes</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/60 dark:bg-neutral-900/50 p-2.5 rounded-2xl border border-neutral-200/60 dark:border-neutral-800">
-                <CheckCircle2 className="w-4 h-4 text-[#E31E24] shrink-0" />
-                <span>Fair Bursary System</span>
+              <div className="flex items-center gap-2.5 bg-neutral-900/60 backdrop-blur-md p-3 rounded-2xl border border-neutral-800">
+                <Award className="w-4 h-4 text-[#E31E24] shrink-0" />
+                <span>100% Bursary Transparency</span>
               </div>
             </div>
 
-            {/* High-Contrast Action CTAs */}
+            {/* Action CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
               <Link href="/manifesto">
-                <AppleButton variant="primary" size="lg" className="w-full sm:w-auto">
+                <AppleButton variant="primary" size="lg" className="w-full sm:w-auto bg-[#E31E24] hover:bg-red-700 text-white font-bold text-base px-8 py-4 rounded-full shadow-lg transition-all active:scale-95">
                   <span>My Plan for Maai Mahiu</span>
                   <ArrowRight className="w-4 h-4" />
                 </AppleButton>
@@ -85,50 +122,39 @@ export function HeroSection({ onOpenContact }: HeroSectionProps) {
                   onClick={onOpenContact}
                   variant="outline"
                   size="lg"
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto bg-neutral-900/80 border-neutral-700 hover:border-red-500 text-white font-bold text-base px-7 py-4 rounded-full transition-all"
                 >
                   <MessageSquare className="w-4 h-4 text-[#E31E24]" />
                   <span>Get In Touch</span>
                 </AppleButton>
               ) : (
                 <Link href="/volunteer">
-                  <AppleButton variant="outline" size="lg" className="w-full sm:w-auto">
+                  <AppleButton variant="outline" size="lg" className="w-full sm:w-auto bg-neutral-900/80 border-neutral-700 hover:border-red-500 text-white font-bold text-base px-7 py-4 rounded-full transition-all">
                     <span>Join the Movement</span>
                   </AppleButton>
                 </Link>
               )}
             </div>
 
-          </div>
-
-          {/* Right Column: Candidate Portrait */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 group">
-              <Image
-                src="/images/hero_bg.png"
-                alt="Zack Njogu - MCA Candidate Maai Mahiu Ward"
-                fill
-                className="object-cover object-top group-hover:scale-102 transition-transform duration-700 ease-out"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/85 via-neutral-950/20 to-transparent" />
-              
-              {/* Bottom Candidate Card Overlay */}
-              <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-[#E31E24]">
-                  <Sparkles className="w-3 h-3" />
-                  <span>Official Jubilee Candidate</span>
-                </div>
-                <h2 className="text-2xl font-bold font-heading">Zack Njogu</h2>
-                <p className="text-xs text-neutral-300 font-medium leading-relaxed">
-                  Standing for Integrity, Action, and Community First across Maai Mahiu Ward.
-                </p>
+            {/* Ward Impact Numbers Bar */}
+            <div className="pt-6 border-t border-neutral-800/80 grid grid-cols-3 gap-4 max-w-xl">
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold font-heading text-white">5</div>
+                <div className="text-xs text-neutral-400 font-medium">Sub-Locations</div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold font-heading text-[#E31E24]">1,200+</div>
+                <div className="text-xs text-neutral-400 font-medium">Families Impacted</div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold font-heading text-amber-500">100%</div>
+                <div className="text-xs text-neutral-400 font-medium">Bursary Openness</div>
               </div>
             </div>
+
           </div>
 
         </div>
-
       </div>
     </section>
   );

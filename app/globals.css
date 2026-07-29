@@ -125,15 +125,23 @@
   background: rgba(150, 150, 150, 0.45);
 }
 
-/* Subtle Editorial Background Mesh */
-.editorial-grid {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+/* Continuous Ticker Animation */
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
-.dark .editorial-grid {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+.animate-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker 30s linear infinite;
 }
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
