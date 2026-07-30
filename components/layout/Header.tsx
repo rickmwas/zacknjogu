@@ -42,27 +42,6 @@ export function Header({ onOpenContact }: HeaderProps) {
 
   return (
     <>
-      {/* Apple Editorial Continuous Marquee Ticker */}
-      <div className="bg-[#E31E24] text-white text-[11px] sm:text-xs font-black uppercase tracking-widest py-1.5 overflow-hidden shadow-inner flex items-center">
-        <div className="animate-ticker flex items-center gap-8 shrink-0">
-          <span>★ MAAI MAHIU MBELE: UONGOZI BORA, UAZI NA MAENDELEO</span>
-          <span>•</span>
-          <span>VOTE ZACK NJOGU MCA</span>
-          <span>•</span>
-          <span>JUBILEE PARTY OFFICIAL CANDIDATE</span>
-          <span>•</span>
-          <span>MAAI MAHIU WARD • NAIVASHA SUB-COUNTY</span>
-          <span>•</span>
-          <span>★ MAAI MAHIU MBELE: UONGOZI BORA, UAZI NA MAENDELEO</span>
-          <span>•</span>
-          <span>VOTE ZACK NJOGU MCA</span>
-          <span>•</span>
-          <span>JUBILEE PARTY OFFICIAL CANDIDATE</span>
-          <span>•</span>
-          <span>MAAI MAHIU WARD • NAIVASHA SUB-COUNTY</span>
-          <span>•</span>
-        </div>
-      </div>
 
       <header
         className={cn(
