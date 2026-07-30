@@ -16,19 +16,19 @@ export function HeroSection({ onOpenContact }: HeroSectionProps) {
     <div className="relative bg-[#FAF8F5] dark:bg-neutral-950 text-neutral-950 dark:text-white transition-colors overflow-hidden">
 
       {/* =========================================================================
-          HERO COVER VIEWPORT: Precision 2-Column Editorial Alignment
-          Left ~48%: Vertically Centered Text | Right ~52%: Large Heroic Candidate
+          HERO COVER VIEWPORT: High-Positioned Candidate (Head pinned to top right)
+          Left 50%: Vertically Centered Text | Right 50%: High-Top Heroic Candidate
          ========================================================================= */}
-      <section className="relative w-full pt-4 sm:pt-8 pb-12 px-4 sm:px-6 lg:px-8 border-b border-neutral-200/60 dark:border-neutral-800/60 overflow-hidden">
+      <section className="relative w-full pt-4 sm:pt-8 pb-8 px-4 sm:px-6 lg:px-8 border-b border-neutral-200/60 dark:border-neutral-800/60 overflow-hidden">
 
         {/* Subtle Ambient Radial Backlight behind Candidate */}
-        <div className="absolute top-10 right-0 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-red-600/10 dark:bg-red-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-red-600/10 dark:bg-red-600/15 rounded-full blur-3xl pointer-events-none" />
 
         {/* Main 2-Column Composition Grid */}
-        <div className="max-w-7xl mx-auto relative min-h-[460px] sm:min-h-[580px] lg:min-h-[640px] flex items-center">
+        <div className="max-w-7xl mx-auto relative min-h-[460px] sm:min-h-[580px] lg:min-h-[660px] flex items-center">
           
-          {/* LEFT COLUMN: Text Content (Occupies ~48% width) */}
-          <div className="w-[52%] sm:w-[48%] z-20 space-y-3.5 sm:space-y-6 pr-2 sm:pr-6 py-2">
+          {/* LEFT COLUMN: Text Content (Occupies 50% width) */}
+          <div className="w-[50%] sm:w-[48%] z-20 space-y-3.5 sm:space-y-6 pr-2 sm:pr-6 py-2">
             
             {/* 1. Category Label with Red Accent Bar */}
             <div className="space-y-1.5">
@@ -76,14 +76,14 @@ export function HeroSection({ onOpenContact }: HeroSectionProps) {
 
           </div>
 
-          {/* RIGHT COLUMN: Absolute Heroic Candidate Cutout (Fills right ~52% width & full height) */}
-          <div className="absolute top-0 right-0 w-[52%] sm:w-[50%] lg:w-[48%] h-full z-10 flex items-end justify-end pointer-events-none">
-            <div className="relative w-full h-[105%] max-h-[700px] aspect-[3.5/5]">
+          {/* RIGHT COLUMN: High-Positioned Candidate Cutout (Head Pinned to Top) */}
+          <div className="absolute top-0 right-0 w-[50%] sm:w-[50%] lg:w-[48%] h-full z-10 flex items-start justify-end pointer-events-none">
+            <div className="relative w-full h-[95%] sm:h-full max-h-[680px]">
               <Image
                 src="/images/candidate.png"
                 alt="Zack Njogu Candidate Portrait"
                 fill
-                className="object-contain object-bottom filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.22)] dark:drop-shadow-[0_25px_50px_rgba(0,0,0,0.8)]"
+                className="object-contain object-top filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.2)] dark:drop-shadow-[0_25px_50px_rgba(0,0,0,0.8)] scale-105 origin-top-right"
                 priority
               />
             </div>
@@ -95,9 +95,8 @@ export function HeroSection({ onOpenContact }: HeroSectionProps) {
 
       {/* =========================================================================
           SECTION 2: SCROLL-REVEALED BALLOT STORYTELLING
-          (Uncontainerized Ballot Sheet glides below Candidate's torso)
          ========================================================================= */}
-      <section className="relative z-20 -mt-10 sm:-mt-16 py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-neutral-100/90 dark:bg-neutral-900/60 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
+      <section className="relative z-20 py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-neutral-100/90 dark:bg-neutral-900/60 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
         
         <div className="max-w-3xl mx-auto space-y-6 text-center">
 
